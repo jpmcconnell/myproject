@@ -43,4 +43,7 @@ left join SalesOps.cdavid_PACING_REP_REGION_MAP RR on RR.Rep_Region__C = t1.Rep_
 left join SalesOps.cdavid_PACING_TIMING PACING on PACING.PACING_REGION = RR.Pacing_Rep_Region and PACING.PACING_WEEK = CAST(((Current_Date - Delivery_Qtr)/ 7)as INT)
 )with data no primary index on commit preserve rows;
 
-select sum(Total_Booked_Implied) from temp2;
+select sum(Total_Booked_Implied) as total_implied from temp2;
+
+
+
